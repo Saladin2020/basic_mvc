@@ -1,0 +1,5 @@
+DB_CONFIG = {}
+DB_CONFIG["HOST"] = "172.16.0.10"
+DB_CONFIG["USER"] = "yingo"
+DB_CONFIG["PASSWORD"] = "Yingo96180"
+DB_CONFIG["DATABASE"] = "hos"

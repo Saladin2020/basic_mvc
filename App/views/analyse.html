@@ -1,0 +1,44 @@
+<!-- ฟอร์มใบสมัครสมาชิกกลุ่มสวัสดิการครูดารุสสาลาม -->
+{% extends "layout/base.html" %}
+{% block content %}
+<div class="content-fluid">
+    <table class="table">
+        <tr>
+            <td>
+                <img src="data:image/png;base64, {{ wd['img0'] }}">
+            </td>
+            <td>
+                <img src="data:image/png;base64, {{ wd['img1'] }}">
+            </td>
+        </tr>
+    </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>is Word</th>
+                <th>not Word</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul>
+                        {% for (k, v) in wd['isword'].items() %}
+                        <li>{{k}} : {{v}}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        {% for (k, v) in wd['notword'].items() %}
+                        <li>{{k}} : {{v}}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
