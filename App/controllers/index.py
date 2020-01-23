@@ -7,5 +7,5 @@ class Index:
     '''Index'''
     def index(self):
         '''Returns argument a is squared.'''
-        crud = CRUD()
+        #crud = CRUD()
         return render_template('index.html')
