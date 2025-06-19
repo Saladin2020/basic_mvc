@@ -3,11 +3,25 @@ from bs4 import BeautifulSoup
 from nltk.corpus import words
 
 
+class UrlFetchError(Exception):
+    """Raised when the target URL cannot be fetched."""
+    pass
+
+
 class Cwordurl:
     def __init__(self, url):
         self.__is_word = {}
         self.__not_word = {}
-        self.__soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+        except Exception as exc:
+            # Ensure object has empty results on failure
+            self.__is_word = {}
+            self.__not_word = {}
+            raise UrlFetchError(f"Failed to fetch URL: {url}") from exc
+
+        self.__soup = BeautifulSoup(response.content, 'html.parser')
         self.__dat = self.__prepocess()
         self.__process()
 
