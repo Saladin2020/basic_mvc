@@ -14,6 +14,9 @@ class Database:
 
     def command(self, sql_statement):
         self.mycur.execute(sql_statement)
+        # Commit changes for statements that modify data
+        if sql_statement.strip().lower().startswith(("insert", "update", "delete")):
+            self.mydb.commit()
 
     def getHeader(self):
         return [x[0] for x in self.mycur.description]
