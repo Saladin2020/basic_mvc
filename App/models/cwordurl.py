@@ -8,10 +8,10 @@ class Cwordurl:
         self.__is_word = {}
         self.__not_word = {}
         self.__soup = BeautifulSoup(requests.get(url).content, 'html.parser')
-        self.__dat = self.__prepocess()
+        self.__dat = self.__preprocess()
         self.__process()
 
-    def __prepocess(self):
+    def __preprocess(self):
         s = self.__soup.get_text().split()
         d = {}
         for x in s:
