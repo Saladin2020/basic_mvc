@@ -11,7 +11,8 @@ class Analyse:
     def index(self):
         ''' index '''
         param = request.form.to_dict()
-        print(param)
+        if 'url' not in param or not param['url']:
+            return redirect(url_for('index'))
 
         w = Cwordurl(param['url'])
         wd = {}
