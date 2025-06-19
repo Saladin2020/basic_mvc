@@ -6,6 +6,5 @@ import sys
 class Index:
     '''Index'''
     def index(self):
-        '''Returns argument a is squared.'''
-        #crud = CRUD()
+        '''Render the index page.'''
         return render_template('index.html')
